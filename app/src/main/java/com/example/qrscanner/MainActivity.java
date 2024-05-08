@@ -40,7 +40,17 @@ public class MainActivity extends AppCompatActivity {
                 IntentIntegrator intentIntegrator = new IntentIntegrator(MainActivity.this);
                 intentIntegrator.setOrientationLocked(true);
                 intentIntegrator.setPrompt("Scan a QR Code");
-                intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                if(false){
+                    /**
+                     * This works fine.
+                     */
+                    intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+                }else{
+                    /**
+                     * This does not always work, making app to crash...
+                     */
+                    intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                }
                 intentIntegrator.initiateScan();
             }
         });
